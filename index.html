@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon"type= "image-icon" href="./assets/icon.ico">
+    <link rel="stylesheet" href="./style.css">
+    <title>Encriptador de Texto</title>
+</head>
+<body>
+    
+            <!--encabezado-->
+            <header>
+                <a href="#" rel="">
+                    <img src="./assets/logo-encriptador.png" alt="Logo Encriptador" class="logo">
+
+                </a>
+            </header>
+            
+        <!--principal-->
+            <main>
+                <section class="Encriptador">
+                    <textarea id="encriptar" class="encripta" placeholder="Ingresa el texto que deseas encriptar o desencriptar..."></textarea>
+                    <div class="encriptador-aviso">
+                        <img src="./assets/exclamacion-logo.png" alt="Imagen exclamacion" class="img-aviso">
+                        <p class="texto-aviso">Solo letras minúsculas y sin acentos</p>
+                    </div>
+                    <div class="Encriptador-contenedor">
+                        <button onclick="encriptar()" class="btn-encriptar">Encriptar</button>
+                        <button onclick="desencriptar()" class="btn-desencriptar">Desencriptar</button>
+                    </div>
+                </section>
+                <section class="tarjeta">
+                    <div class="tarjeta-contenedor">
+                        <img id="ocultarImagen" src="./assets/Designer_2.png" alt="imagen Designer" class="img-designer">
+                        <!--p class="texto-uno">Ningún mensaje fue encontrado</p-->
+                        <!--p class="texto-dos">Ingrese el texto que desees encriptar o desencriptar</p-->
+
+                    </div>
+                    <textarea id="resultadoTexto" class="evaluar" readonly placeholder="El resultado aparecerá aquí..."></textarea>
+                    <button id="btnCopiar" style="display: none;" onclick="copiarTexto()" class="btn-copiar">Copiar</button>
+                </section>
+            </main>
+
+            <footer>
+                <p class="copyright">&copy; copyright 2024 - Encriptador ded texto - desarrollado por Antoine Toloza L.</p>
+                <a href="#" rel="">
+                    <img src="./assets/linkedin.png" alt="icono linkedin" class="linkedin">
+                    <img src="./assets/github.png" alt="icono github" class="github">
+                </a>
+            </footer>
+            
+    <script src="script.js"></script>
+</body>
+
+</html>
