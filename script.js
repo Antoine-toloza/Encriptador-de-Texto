@@ -1,3 +1,8 @@
+//funcion para reload en boton de logo
+document.getElementById("logo-reload").onclick = function(){
+    location.reload();
+};
+
 
 // Función para encriptar el texto
 function encriptar() {

@@ -135,7 +135,13 @@ main{
     justify-content: space-between;
 
 }
-
+#encriptar{
+    color: var(--golden);
+    padding: 1rem;
+    line-height: 3rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
 
 .encripta{
     width: 41.25rem;
