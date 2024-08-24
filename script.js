@@ -5,7 +5,7 @@ document.getElementById("logo-reload").onclick = function(){
 
 // Función para encriptar el texto
 function encriptar() {
-    const texto = document.getElementById("encriptar").value.trim();
+    const texto = document.getElementById("encriptar").value.toLowerCase();
 
     if (!texto) {
         alert("Ningún mensaje fue encontrado");
