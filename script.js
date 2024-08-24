@@ -1,14 +1,13 @@
-//funcion para reload en boton de logo
+//funcion para btn-reload
 document.getElementById("logo-reload").onclick = function(){
     location.reload();
 };
 
-
 // Función para encriptar el texto
 function encriptar() {
-    let texto = document.getElementById("encriptar").value;
+    const texto = document.getElementById("encriptar").value.trim();
 
-    if (texto.trim() === "") {  // Verificar si el texto está vacío
+    if (!texto) {
         alert("Ningún mensaje fue encontrado");
         return;
     }
@@ -17,29 +16,42 @@ function encriptar() {
         alert("Por favor, ingrese solo letras minúsculas sin acentos ni caracteres especiales.");
         return;
     }
-    let textoEncriptado = texto
-        .replace(/e/g, "enter")
-        .replace(/i/g, "imes")
-        .replace(/a/g, "ai")
-        .replace(/o/g, "ober")
-        .replace(/u/g, "ufat");
+
+    const mapaEncriptacion = {
+        e: "enter",
+        i: "imes",
+        a: "ai",
+        o: "ober",
+        u: "ufat"
+    };
+
+    const textoEncriptado = texto.replace(/[eioua]/g, match => mapaEncriptacion[match]);
     
-    document.getElementById("resultadoTexto").value = textoEncriptado;
-    document.getElementById("ocultarImagen").style.display = "none";
-    document.getElementById("btnCopiar").style.display = "block";
+    actualizarResultado(textoEncriptado);
 }
 
 // Función para desencriptar el texto
 function desencriptar() {
-    let texto = document.getElementById("encriptar").value;
-    let textoDesencriptado = texto
-        .replace(/enter/g, "e")
-        .replace(/imes/g, "i")
-        .replace(/ai/g, "a")
-        .replace(/ober/g, "o")
-        .replace(/ufat/g, "u");
+    const texto = document.getElementById("encriptar").value;
 
-    document.getElementById("resultadoTexto").value = textoDesencriptado;
+    const mapaDesencriptacion = {
+        enter: "e",
+        imes: "i",
+        ai: "a",
+        ober: "o",
+        ufat: "u"
+    };
+
+    const textoDesencriptado = texto.replace(/enter|imes|ai|ober|ufat/g, match => mapaDesencriptacion[match]);
+
+    actualizarResultado(textoDesencriptado);
+}
+
+// Función para actualizar el resultado y la interfaz
+function actualizarResultado(texto) {
+    document.getElementById("resultadoTexto").value = texto;
+    document.getElementById("ocultarImagen").style.display = "none";
+    document.getElementById("btnCopiar").style.display = "block";
 }
 
 // Función para copiar el texto al portapapeles
@@ -49,115 +61,3 @@ function copiarTexto() {
     document.execCommand("copy");
     alert("Texto copiado al portapapeles");
 }
-
-/*
-//e - enter
-//o - ober
-//i - imes
-//a - ai
-//u - ufat
-
-const encriptar = document.getElementById("button__encriptar");
-const desencriptar = document.getElementById("button__desencriptar");
-const copy = document.getElementById("button__copiar");
-const textoInicial = document.getElementById("textoInput");
-const textFinal = document.getElementById("textoFinal");
-const munheco = document.getElementById("munheco");
-const textInfo = document.getElementById("textoInfo");
-const rigth = document.getElementById("rigth")
-
-const remplace = (newvalue) => {
-textFinal.innerHTML = newvalue;
-textFinal.classList.add("ajustar");
-rigth.classList.add("ajuste")
-textoInicial.value = "";
-textoInicial.style.height = "auto"
-textoInicial.placeholder = "Ingrese el texto aquí";
-munheco.classList.add("ocultar");
-textInfo.classList.add("ocultar");
-copy.classList.remove("bn_ocultar");
-}
-
-const reset = () => {
-textoInicial.value = "";
-    textoInicial.style.height = "auto";
-textFinal.innerHTML = "";
-rigth.classList.remove("ajuste")
-textFinal.classList.remove("ajustar");
-munheco.classList.remove("ocultar");
-textFinal.placeholder = "Ningún mensaje fue encontrado";
-textInfo.classList.remove("ocultar")
-copy.classList.add("bn_ocultar");
-textoInicial.focus();
-};
-
-let remplazar = [
-["e", "enter"],
-["o", "ober"],
-["i", "imes"],
-["a", "ai"],
-["u", "ufat"]
-];
-
-encriptar.addEventListener('click', () => {
-
-const texto = textoInicial.value.toLowerCase();
-
-if (texto != "") {
-function encript(newtext) {
-for (let i = 0; i < remplazar.length; i++) {
-if (newtext.includes(remplazar[i][0])) {
-newtext = newtext.replaceAll(remplazar[i][0], remplazar[i][1]);
-};
-};
-return newtext;
-};
-remplace(encript(texto));
-} else {
-alert("Ingrese texto para encriptar");
-reset();
-};
-});
-
-desencriptar.addEventListener('click', () => {
-
-const texto = textoInicial.value.toLowerCase();
-
-if (texto != "") {
-function desencript(newtext) {
-for (let i = 0; i < remplazar.length; i++) {
-if (newtext.includes(remplazar[i][1])) {
-newtext = newtext.replaceAll(remplazar[i][1], remplazar[i][0]);
-};
-};
-return newtext;
-};
-remplace(desencript(texto));
-} else {
-alert("Ingrese texto a desencriptar");
-reset();
-};
-});
-
-copy.addEventListener("click", () => {
-let texto = textFinal;
-texto.select();
-document.execCommand('copy');
-//navigator.clipboard.writeText(texto.value);
-//clipboard función no compatible con móviles
-alert("Texto Copiado");
-reset();
-});
-//auto ajuste de textarea
-textoInicial.addEventListener("change", e => {
-textoInicial.style.height = "auto";
-let scHeight = e.target.scrollHeight;
-textoInicial.style.height = `${scHeight}px`;
-});
-textoInicial.addEventListener("keyup", e => {
-textoInicial.style.height = "auto";
-let scHeight = e.target.scrollHeight;
-textoInicial.style.height = `${scHeight}px`;
-}); 
-
-*/

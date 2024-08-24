@@ -29,6 +29,7 @@
     box-sizing: border-box;
     font-family: "PT Sans", sans-serif;
     text-decoration: none;
+    color: var(--grey-golden);
 
 
 }
@@ -61,7 +62,7 @@ header{
     margin: 2.5rem;
 }
 
-.logo{
+#logo{
     cursor: pointer;
     display: flex;
     align-items: flex-start;
@@ -73,47 +74,46 @@ header{
     border: none;
 }
 
-/* logo con fucnon de refrescar pagina*/
 
 /* Botón transparente con texto flotante */
 #logo-reload {
     cursor: pointer;
-    background-color: transparent; /* Botón transparente */
-    border: none; /* Sin borde */
+    background-color: transparent; 
+    border: none; 
     padding: 0;
     margin: 0;
     display: inline-block;
     position: relative;
-    outline: none; /* Eliminar el borde de enfoque en navegadores */
+    outline: none; 
 }
 
 /* Efecto al hacer clic para disminuir el tamaño */
 #logo-reload:active {
-    transform: scale(0.95); /* Reduce el tamaño a 95% cuando se presiona */
+    transform: scale(0.95);
 }
 
 /* Imagen dentro del botón */
 #logo-reload img {
-    width: 100px; /* Ajusta el tamaño del logo */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 100px; 
+    height: auto;
 }
 
 /* Tooltip flotante (texto que aparece al pasar el mouse) */
 #logo-reload[title]:hover::after {
-    content: attr(title); /* Mostrar el texto del atributo title */
+    content: attr(title); 
     position: absolute;
-    top: -30px; /* Ajusta la posición del tooltip */
+    top: -30px; 
     left: 50%;
     transform: translateX(-50%);
-    background-color: #333; /* Color de fondo del tooltip */
-    color: #fff; /* Color del texto del tooltip */
+    background-color: #333;
+    color: #fff; 
     padding: 5px 10px;
     border-radius: 5px;
     white-space: nowrap;
     font-size: 14px;
     z-index: 10;
-    opacity: 0.9; /* Ligera transparencia */
-    pointer-events: none; /* El tooltip no interfiere con el mouse */
+    opacity: 0.9; 
+    pointer-events: none; 
 }
 
 /*principal*/
@@ -165,7 +165,7 @@ main{
     
 }
 
-.encripta:focus::placeholder {
+.encripta::placeholder {
     color: var(--golden);
     
     
